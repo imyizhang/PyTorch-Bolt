@@ -23,7 +23,7 @@ class BaseTrainer(abc.ABC):
         # configure distributed data parallel (DDP) training
         self.distributed = args.distributed
         self.use_slurm = args.use_slurm
-        self.dist_backend = args.dist_backend        
+        self.dist_backend = args.dist_backend
         self.master_addr = args.master_addr
         self.master_port = args.master_port
         self.world_size = args.world_size
@@ -171,7 +171,7 @@ class BaseTrainer(abc.ABC):
         parser.add_argument(
             '--loggers',
             default=None, #required=True,
-            help='[Trainer] loggers for training',
+            help='[Trainer] loggers for training (Required)',
         )
         parser.add_argument(
             '--device',
@@ -231,12 +231,12 @@ class BaseTrainer(abc.ABC):
         parser.add_argument(
             '--datamodule',
             default=None, #required=True,
-            help='[Trainer] datamodule used for traning',
+            help='[Trainer] datamodule for traning (Required)',
         )
         parser.add_argument(
             '--model',
             default=None, #required=True,
-            help='[Trainer] model to train',
+            help='[Trainer] model to train (Required)',
         )
         parser.add_argument(
             '--max_epochs',

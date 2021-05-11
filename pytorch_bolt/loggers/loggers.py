@@ -160,7 +160,7 @@ class Loggers(BaseLoggers):
             '--tracker_keys',
             default=None, #required=True,
             type=List[str],
-            help='[Loggers] keys to the values to be tracked',
+            help='[Loggers] keys to the values to be tracked (Required)',
         )
         parser.add_argument(
             '--tracker_reduction',

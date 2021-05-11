@@ -9,7 +9,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setuptools.setup(
     name='PyTorch-Bolt',
-    version='0.0.1',
+    version='0.0.2',
     description='A simple PyTorch wrapper making multi-node multi-GPU training much easier on Slurm',
     author='Yi Zhang',
     author_email='yizhang.dev@gmail.com',
@@ -19,7 +19,7 @@ setuptools.setup(
     download_url='https://github.com/yzhang-dev/PyTorch-Bolt',
     packages=setuptools.find_packages(),
     keywords=[
-        'pytorch', 'pytorch-template', 'ddp', 'distributed', 'slurm', 
+        'pytorch', 'pytorch-template', 'ddp', 'distributed', 'slurm',
     ],
     classifiers=[
         'License :: OSI Approved :: MIT License',

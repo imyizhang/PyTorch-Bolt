@@ -18,20 +18,41 @@ PyTorch Bolt supports to
 
 ## Quickstart
 
+### All-in-One Template Using PyTorch Bolt
+
+#### Recommended Structure
+
+```
+.
+├── data
+│   ├── __init__.py
+│   └── customized_datamodule.py
+├── model
+│   ├── __init__.py
+│   └── customized_model.py
+├── main.py
+├── main.sbatch
+└── requirements.txt
+```
+
+#### Demo
+
+[MNIST classification using PyTorch Bolt](https://github.com/yzhang-dev/PyTorch-with-Slurm/tree/main/Tutorials/All-in-One-Template-Using-PyTorch-Bolt) (you might need to go through the relevant [tutorials](https://github.com/yzhang-dev/PyTorch-with-Slurm) step by step).
+
 
 
 ### Dependencies and Installation
 
 #### Package Dependencies
 
-`pip` will handle all package dependencies.
+`pip install -r requirements.txt` can handle all package dependencies.
 
 
 
 #### Install Pytorch Bolt
 
 ```bash
-$ pip install pytorch_bolt
+$ pip install pytorch-bolt
 ```
 
 
@@ -71,7 +92,7 @@ Returns `argparse` parser. (**Staticmethod**)
 ```python
 import pytorch_bolt
 
-class MNISTDataModule(pytorch_bolt.DataModule):
+class MyDataModule(pytorch_bolt.DataModule):
 
     def __init__(self, args):
         super().__init__(args)
@@ -90,7 +111,7 @@ class MNISTDataModule(pytorch_bolt.DataModule):
     @staticmethod
     def add_argparse_args(parent_parser):
         parser = argparse.ArgumentParser(parents=[parent_parser], add_help=False)
-        parser = DataModule.add_argparse_args(parser)
+        parser = pytorch_bolt.DataModule.add_argparse_args(parser)
         # TODO
         return parser
 
@@ -130,7 +151,7 @@ Returns optimizer (and learning rate scheduler).
 ```python
 import pytorch_bolt
 
-class Model(pytorch_bolt.Module):
+class MyModel(pytorch_bolt.Module):
 
     def __init__(self, args):
         super().__init__()
@@ -314,7 +335,7 @@ class MyTrainer(pytorch_bolt.Trainer):
 
 ### Reference
 
-* [Sbatch Output Environment Variables](https://slurm.schedmd.com/sbatch.html#lbAK)
+* [`sbatch` Output Environment Variables](https://slurm.schedmd.com/sbatch.html#lbAK)
 
 * [`torch.distributed` TCP Initialization Environment Variables](https://pytorch.org/docs/stable/distributed.html#environment-variable-initialization)
 
